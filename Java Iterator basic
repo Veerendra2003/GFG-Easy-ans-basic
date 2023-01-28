@@ -1,0 +1,99 @@
+/*
+Java Iterator
+BasicAccuracy: 34.46%Submissions: 4K+Points: 1
+Lamp
+Unable to Crack Interviews of Your Dream Companies ? Click Here to End This Problem!
+
+It is a universal iterator as we can apply it to any Collection object. By using Iterator, we can perform both read and remove operations.Try this problem using Iterator.
+
+Given an array arr[] of n integrs which are to be put in an ArrayList and an integer k. Iterate the Array List using iterator and remove all the numbers of the ArrayList which are less than k. And then return the sorted ArrayList.
+
+ 
+
+Example 1:
+
+Input: 
+n = 5, k = 8
+arr[] = {1, 6, 9, 2, 11}
+Output:
+[9, 11]
+Explanation:
+The numbers 1, 6 and 2 are less than 8,
+and so they are removed.
+Example 2:
+
+Input: 
+n = 4, k = 13
+arr[] = {1, 4, 6, 9}
+Output:
+[]
+Explanation:
+All the numbers are less than 13,
+and so they are removed.
+ 
+
+Your Task:
+You don't need to read input or print anything. Your task is to complete the function javaIterator() which takes 2 Integers n, k, and an array arr[] of n integers as input and returns a sorted ArrayList after removing all elements less than k.
+
+ 
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
+
+ 
+
+Constraints:
+1 <= n,k <= 105
+1 <= arr[i] <= 105*/
+=================================================================================================
+
+SOLUTION IN JAVA:
+==================
+//{ Driver Code Starts
+
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static void main(String args[]) throws IOException {
+        BufferedReader read =
+            new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(read.readLine());
+        while (t-- > 0) {
+            String S[] = read.readLine().split(" ");
+            int n = Integer.parseInt(S[0]);
+            int k = Integer.parseInt(S[1]);
+            
+            int[] arr = new int[n];
+            String S1[] = read.readLine().split(" ");
+            
+            for(int i=0; i<n; i++)
+                arr[i] = Integer.parseInt(S1[i]);
+
+            Solution ob = new Solution();
+            System.out.println(ob.javaIterator(n,k,arr));
+        }
+    }
+}
+// } Driver Code Ends
+
+
+
+
+class Solution {
+    static ArrayList<Integer> javaIterator(int n, int k, int[] arr) {
+        // code here
+        ArrayList <Integer> temp = new ArrayList<>();
+        for(int i=0; i<n; i++)
+        temp.add(arr[i]);
+        Iterator<Integer> it = temp.iterator();
+        while(it.hasNext()){
+            int x =(int)it.next();
+            if(x<k)
+            it.remove();
+        }
+        Collections.sort(temp);
+        return temp;
+    }
+};
