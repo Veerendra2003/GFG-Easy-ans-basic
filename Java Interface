@@ -1,0 +1,94 @@
+/*
+Java Interface
+BasicAccuracy: 44.97%Submissions: 3K+Points: 1
+Lamp
+Unable to Crack Interviews of Your Dream Companies ? Click Here to End This Problem!
+
+Like a class, an interface can have methods and variables, but the methods declared in interface are by default abstract (only method signature, no body).  
+
+Given an inteface in1 which includes a method display which takes an integer as input .
+
+interface in1
+{
+    void display(int p);
+}
+Task is to write a class testClass which implements interface in1 and has a method named display which takes an integer as input and total number of prime numbers between 2 and integer k (including it). Main function in written for you in the editor.
+
+Input: 
+The first line will contain an integer T (number of test cases). Each test case consists of an integer n.
+
+Output: 
+Print total number of prime numbers between 2 and the given number ( including them ).
+
+Constraints: 
+1 < = T < = 1000
+2<= n <= 104
+
+Example:
+Input:
+2
+13
+19
+
+Output:
+6
+8*/
+==========================================================================================
+SOLUTION IN JAVA:
+=====================
+/{ Driver Code Starts
+//Initial Template for Javaimport java.io.*;
+
+import java.util.Scanner;
+
+interface in1
+{
+    void display(int p);
+}
+
+class GFG
+{
+    public static void main (String[] args)
+    {
+        Scanner sc=new Scanner (System.in);
+        int t=sc.nextInt();
+        while(t-->0)
+        {
+        int k= sc.nextInt();
+        testClass p = new testClass();
+        p.display(k);
+        }
+    }
+}
+
+
+// } Driver Code Ends
+//User function Template for Java
+
+class testClass implements in1
+{
+    public void display(int k)
+    {   
+        // Add your code here.
+        int count=0;
+        for(int i=2; i<=k; i++){
+            int c=0;
+            for(int j=2; j<=Math.sqrt(i); j++)
+            {
+                if(i%j==0)
+                {
+                    c=1;
+                    break;
+                }
+               
+            }
+             if(c==0)
+                count++;
+        }
+        System.out.println(count);
+    }
+}
+
+//{ Driver Code Starts.
+
+// } Driver Code Ends
