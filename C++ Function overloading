@@ -1,0 +1,127 @@
+/*
+C++ Function overloading
+EasyAccuracy: 47.47%Submissions: 6K+Points: 2
+Lamp
+Unable to Crack Interviews of Your Dream Companies ? Click Here to End This Problem!
+
+Gurkaran is fascinated by how can we know the exact volume of some objects just by knowing some of their dimensions but he does not actually know how it actually works. Can you help him find the volume of a cube, a cylinder, and a rectangular box?
+
+Note: Invest time in studying the locked code.
+
+Take the value of pie = 3.14159
+Example:
+
+Input:
+
+3
+
+1 2
+
+2 1 2
+
+3 1 2 3
+
+Output:
+
+8
+6.29038
+6
+Input:
+
+First line contains the number of test cases and each test case has a single line query where in each query first integer denotes if the object given is a cube, cylinder, or box and the remaining integer in the query denotes object's dimension.
+
+1:- represents a cube
+
+2 :-  represents a cylinder
+
+3 :- represents a rectangular box
+
+All the integer values in a query are space separated.
+
+Output:
+
+The output should consist of a single integer or double value (depending upon the object) which depicts the volume of that object.
+
+Constraints:
+1 <= t <= 100
+
+0 <= dimensions <= 100
+
+first number in a query = {1, 2, 3} */
+
+===================================================================
+SOLUTION IN JAVA:
+===================
+/{ Driver Code Starts
+//Initial Template for C++
+
+#include <iostream>
+using namespace std;
+
+
+
+// } Driver Code Ends
+//User function Template for C++
+
+void volume(int s)
+{
+    // Add your code here.
+    int vol = s*s*s;
+    cout<<vol<<endl;
+}
+
+void volume(int r, int h)
+{
+    // Add your code here
+     cout<<(3.14159*r*r*h)<<endl;
+    
+}
+
+void volume(int l, int b, int h)
+{
+    // Add your code here.
+   
+    cout<<l*b*h<<endl;
+}
+
+
+
+//{ Driver Code Starts.
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int q;
+        cin>>q;
+        
+        switch (q)
+        {
+            case 1:
+            int edge;
+            cin>>edge;
+            volume(edge);
+            break;
+            
+            case 2:
+            int radius, heigh;
+            cin>>radius>>heigh;
+            volume(radius, heigh);
+            break;
+            
+            case 3:
+            int length, width, height;
+            cin>>length>>width>>height;
+            volume(length, width, height);
+            break;
+            
+        }
+        
+        
+        
+    }
+	
+	return 0;
+}
+// } Driver Code Ends
