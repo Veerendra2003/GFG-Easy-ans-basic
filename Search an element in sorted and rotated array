@@ -1,0 +1,85 @@
+/
+Search an element in sorted and rotated array
+EasyAccuracy: 41.3%Submissions: 36K+Points: 2
+Lamp
+Don't Let the Fear of Missing Out Hold You Back from a Lucrative Career in Data Science. Try this course!
+
+Given a sorted and rotated array A of N distinct elements which are rotated at some point, and given an element K. The task is to find the index of the given element K in array A.
+
+Example 1:
+
+Input:
+N = 9
+A[] = {5,6,7,8,9,10,1,2,3}
+K = 10
+Output: 5
+Explanation: 10 is found at index 5.
+Example 1:
+
+Input:
+N = 3
+A[] = {3,1,2}
+K = 1
+Output: 1
+User Task:
+Complete Search() function and return the index of the element K if found in the array. If the element is not present, then return -1.
+
+Expected Time Complexity: O(log N).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 ≤ N ≤ 107
+0 ≤ Ai ≤ 108
+1 ≤ K ≤ 108
+
+**/
+====================================================================================================================================
+SOLUTION IN JAVA:
+------------------
+//{ Driver Code Starts
+//Initial Template for Java
+
+
+import java.io.*;
+import java.util.*; 
+
+class GFG{
+    public static void main(String args[]) throws IOException { 
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t > 0){
+        	int n = sc.nextInt();
+        	int[] array = new int[n];
+        	for(int i=0; i<n; i++)
+        	{
+        		array[i] = sc.nextInt();
+        	}
+        	int target = sc.nextInt();
+
+            Solution ob = new Solution();
+			System.out.println(ob.Search(array,target));
+            t--;
+        }
+    } 
+} 
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution 
+{ 
+    static int Search(int array[], int target)
+	{
+	    // code here
+	    for(int i=0,j=array.length-1; i<=j; i++,j--){
+	        if(array[i]==target)
+	        return i;
+	        if(array[j]==target)
+	        return j;
+	    }
+	    return -1;
+	}
+} 
+
